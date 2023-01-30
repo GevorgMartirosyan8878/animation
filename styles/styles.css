@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.areaOfAnimation {
+    width: 250px;
+    height: 250px;
+    border: 2px solid #8394a1;
+    border-radius: 20px;
+    position: relative;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /*animation: bubble-effect 4s infinite;*/
+    transition: 1.5s all;
+    position: absolute;
+}
+
+@keyframes bubble-effect {
+    0% {
+        left: 0;
+        background-color: #fa8b8b;
+    }
+    25% {
+        background-color: red;
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        left: 60px;
+        background-color: #fa8b8b;
+        width: 17px;
+        height: 17px;
+    }
+    75% {
+        background-color: red;
+        width: 10px;
+        height: 10px;
+    }
+    100% {
+        left: 0;
+        background-color: #fa8b8b;
+        width: 15px;
+        height: 15px;
+    }
+}
