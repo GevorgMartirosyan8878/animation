@@ -1,4 +1,4 @@
-import { createElement } from "./helpers/helpers";
+import { createElement } from "./helpers/helpers.js";
 
 const animationArea: HTMLElement = document.querySelector('.areaOfAnimation');
 const circle = createElement('div');
@@ -10,8 +10,6 @@ appendStyles(circle, {
     transition: '1.5s all',
     position: 'absolute',
 })
-
-// circle.classList.add('circle');
 
 setPosition(circle, generateRandomNumber(240))
 
@@ -30,8 +28,6 @@ function appendStyles(elem: HTMLElement, styles: cssAttributes): void {
     properties.forEach((param) => {
         elem.style[param] = styles[param]
     });
-
-    // animationArea.append(elem);
 }
 
 function setPosition(elem: HTMLElement, number: number): void {
