@@ -18,6 +18,7 @@
     border: 2px solid #8394a1;
     border-radius: 20px;
     position: relative;
+    overflow: hidden;
 }
 
 .circle {
@@ -31,7 +32,7 @@
 
 @keyframes bubble-effect {
     0% {
-        left: 0;
+        /*left: 0;*/ /* need to set value of left dynamycally */
         background-color: #fa8b8b;
     }
     25% {
@@ -40,7 +41,7 @@
         height: 10px;
     }
     50% {
-        left: 60px;
+        /*left: 60px;*/ /* need to change left + 60px dynamically*/
         background-color: #fa8b8b;
         width: 17px;
         height: 17px;
@@ -51,7 +52,7 @@
         height: 10px;
     }
     100% {
-        left: 0;
+        /*left: 0;*/ /* make it initial random generated umber */
         background-color: #fa8b8b;
         width: 15px;
         height: 15px;

@@ -1,4 +1,7 @@
-import { createElement } from "./helpers/helpers.js";
+import {
+    createElement,
+    generateRandomNumber
+} from "./helpers/helpers.js";
 
 const animationArea: HTMLElement = document.querySelector('.areaOfAnimation');
 const circle = createElement('div');
@@ -9,16 +12,12 @@ appendStyles(circle, {
     borderRadius: '50%',
     transition: '1.5s all',
     position: 'absolute',
+    animation: 'bubble-effect 4s infinite'
 })
 
-setPosition(circle, generateRandomNumber(240))
+setElemPosition(circle, generateRandomNumber(250), animationArea)
 
-circle.style.animation = 'bubble-effect 4s infinite';
 animationArea.append(circle);
-
-function generateRandomNumber(number: number): number {
-    return Math.floor(Math.random() * number)
-}
 
 type cssAttributes = Omit<Partial<CSSStyleDeclaration>, 'length' | 'parentRule'>
 
@@ -30,7 +29,18 @@ function appendStyles(elem: HTMLElement, styles: cssAttributes): void {
     });
 }
 
-function setPosition(elem: HTMLElement, number: number): void {
-    elem.style.top = `${number}px`;
-    elem.style.left = `${number}px`;
+function setElemPosition(elem: HTMLElement, position: number, elemContainer?: HTMLElement): void {
+    const container = elemContainer;
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    if(position >= containerWidth || position >= containerHeight) {
+        elem.style.top = `${containerHeight}px`;
+        elem.style.left = `${containerWidth}px`;
+        return
+    }
+    // todo need to work on moving keyframes from css to js/ts file
+    console.log('position: --->', position);
+    elem.style.top = `${position}px`;
+    elem.style.left = `${position}px`;
 }
